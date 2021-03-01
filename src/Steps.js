@@ -1,17 +1,24 @@
 import React from "react";
 import "./App.css";
 import Step from "./Step";
+import PropTypes from "prop-types";
 
-const Steps = (props) => {
+const propTypes = {
+  activeIndex: PropTypes.number,
+  steps: PropTypes.array
+};
+
+const Steps = ({activeIndex, steps}) => {
+
   const classNameHelper = (stepIndex) => {
-    if (stepIndex > props.activeIndex) return "Inactive";
-    if (stepIndex === props.activeIndex) return "Active";
+    if (stepIndex > activeIndex) return "Inactive";
+    if (stepIndex === activeIndex) return "Active";
     return "Completed";
   };
 
   return (
     <div className={"Steps-Container"}>
-      {props.steps.map((step, index) => (
+      {steps.map((step, index) => (
         <Step
           title={step.title}
           status={step.status}
@@ -24,4 +31,5 @@ const Steps = (props) => {
   );
 };
 
+Steps.propTypes = propTypes
 export default Steps;

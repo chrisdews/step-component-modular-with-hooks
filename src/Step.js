@@ -1,16 +1,25 @@
 import React from "react";
 import "./App.css";
+import PropTypes from "prop-types";
 
-const Step = (props) => {
-  console.log(props);
+const propTypes = {
+  className: PropTypes.string,
+  num: PropTypes.number,
+  title: PropTypes.string,
+};
+
+const Step = ({className, num, title}) => {
+
+
   return (
     <>
       <div className={"Step"}>
-        <span className={`Number ${props.className}`}>{props.num}</span>
-        {props.title}
+        <span className={`Number ${className}`}>{num}</span>
+        {title}
       </div>
     </>
   );
 };
 
+Step.propTypes = propTypes;
 export default Step;
