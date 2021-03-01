@@ -5,12 +5,12 @@ import ContentContainer from "./ContentContainer";
 import { useState } from "react";
 
 function App() {
-  const [steps, setSteps] = useState([
+  const steps = [
     { title: "First", content: "First content" },
     { title: "Second", content: "Second Content" },
     { title: "Third", content: "Third Content" },
     { title: "Forth", content: "n+1!"}
-  ]);
+  ];
 
   const [activeIndex, setActiveIndex] = useState(0);
   const nextClick = () => {
